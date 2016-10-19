@@ -1,3 +1,3 @@
 [Blog](http://ananleexz.github.io)
 
-Welcome my Blog
+Welcome to my Blog
