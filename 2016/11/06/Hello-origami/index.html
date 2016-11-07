@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans" prefix="og: http://ogp.me/ns#" class="han-init">
+<head>
+  <meta charset="utf-8">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <title>Anan</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <!--在这里倒入jquery 方便处理部分页面的jquery-->
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+  <script src="http://lib.sinaapp.com/js/jquery/1.9.0/jquery.min.js" type="text/javascript"></script>
+</head>
+
+<body>
+	
+  <header class="site-header navfixed-false">
+
+  <div class="container">
+      <h1><a href="/" title="Anan"><span class="mega-octicon octicon-versions"></span> Anan</a></h1>
+      <nav class="site-header-nav" role="navigation">
+        
+              
+              <a href="/"  class=" site-header-nav-item hvr-underline-from-center" title="Home">Home</a>
+        
+              
+              <a href="/resume/"  class=" site-header-nav-item hvr-underline-from-center" title="Resume">Resume</a>
+        
+              
+              <a href="/blog/"  class=" site-header-nav-item hvr-underline-from-center" title="Blog">Blog</a>
+        
+              
+              <a href="/guestbook/"  class=" site-header-nav-item hvr-underline-from-center" title="Guestbook">Guestbook</a>
+        
+      </nav>
+  </div>
+</header>
+
+	
+    <section class="collection-head geopattern" data-pattern-id="Hello origami" >
+
+    <div class="container">
+        <div class="collection-title">
+            <h1 class="collection-header">Hello origami</h1>
+            <div class="collection-info">
+             
+                <span class="meta-info">
+                    
+                            <span class="octicon octicon-calendar"></span>
+                            <time datetime="2016-11-06T11:16:39.000Z" itemprop="datePublished">2016-11-06</time>
+                    
+                </span>
+             
+            </div>
+        </div>
+    </div>
+</section>
+	
+
+    <section class="container">
+
+    <div class="columns">
+        <div class="column three-fourths" >
+            <article class="article-content article-entry">
+                <p>准备有意识的去做些事情，这个过程发现Origami系统的教程还比较少，希望自己能够边学习边发些自己的理解，用以回馈社会。 </p>
+<p>Origami是基于Quartz Composer的交互设计利器，广受PM和UX的喜欢。 </p>
+<p>那么，为什么选择Quartz Composer + Origami的组合，而不是PS+AE，或者是Keynote+Sketch。 </p>
+<p>原因很简单，交互效果可以直接生成代码！！！ </p>
+<p><img src="https://dl.dropbox.com/s/b2sli0xnyd9ciw3/code%20export.png?dl=0" alt=""> </p>
+<a id="more"></a>
+<p><img src="https://dl.dropbox.com/s/hbzkwgd5zj4bdc6/export.png?dl=0" alt=""> </p>
+<h3 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h3><p>在学习Origami之前，我们先了解一下Origami的前世今生 </p>
+<blockquote>
+<p>  Origami是Facebook开发的Quartz Composer的插件。 </p>
+<p> Quartz Composer则是Mac OS X中的Xcode开发环境的一部分的用于处理和呈现图形数据的基于节点的可视编程语言。 </p>
+</blockquote>
+<p>所以，在使用Qrigami前，你需要拥有这三款应用：<br><img src="https://dl.dropbox.com/s/ms7a2en7dtr4jex/set.png?dl=0" alt=""></p>
+<p>关于下载中的问题，请自行Google，（ <a href="https://facebook.github.io/origami/download/" target="_blank" rel="external">所需应用下载</a> ）当你拥有以上三样应用时，我们就可以开始接下来的工作了。 </p>
+<h3 id="创建你的文件"><a href="#创建你的文件" class="headerlink" title="创建你的文件"></a>创建你的文件</h3><p> File &gt; New Origami File </p>
+<h3 id="熟悉你的工作环境"><a href="#熟悉你的工作环境" class="headerlink" title="熟悉你的工作环境"></a>熟悉你的工作环境</h3><ul>
+<li><p>Editor是你可编辑交互内容的工作台。 </p>
+</li>
+<li><p>Viewer是你编辑内容的交互输出展示台。 </p>
+</li>
+<li><p>理解patch概念，工作台里的三个初始模块，就是三个patches，你可以理解为三块积木。 </p>
+</li>
+</ul>
+<p><img src="https://dl.dropbox.com/s/50zmmyco8448cx3/start.png?dl=0" alt=""> </p>
+<h3 id="工作台里的世界"><a href="#工作台里的世界" class="headerlink" title="工作台里的世界"></a>工作台里的世界</h3><ul>
+<li><p>Black patch（图中的Layer Group）是接收输入并处理它们，然后创建各种输出的处理器。  </p>
+</li>
+<li><p>Purple patch（图中的Viewer Size） 和处理器的概念一样，但是它更强调交互的展示。 </p>
+</li>
+<li><p>Blue patch（图中的Viewer ）是Viewer里显示的内容,也就是交互展示的内容。  </p>
+</li>
+<li><p>Patches 必须连接 Blue patch 才可以工作。 </p>
+</li>
+</ul>
+<p>我们大致了解了Origami的世界构成，它就是一块块积木（ patches ）通过交互逻辑，搭建成一个交互世界，再利用Viewer展现在人的眼前。 </p>
+<p>按照国际”hello world”的惯例，我们以”hello origami”开始我们的旅程。 </p>
+<h3 id="开始制作"><a href="#开始制作" class="headerlink" title="开始制作"></a>开始制作</h3><p><img src="https://dl.dropbox.com/s/z6ecnju0ugxabjt/Hello%20origami.gif?dl=0" alt=""> </p>
+<p>我们在制作一个交互内容之前，首先要考虑交互元素，如上内容，包含： </p>
+<ul>
+<li><p>背景颜色变换  </p>
+</li>
+<li><p>文本颜色变换  </p>
+</li>
+<li><p>文本大小缩放   </p>
+</li>
+<li><p>控制交互发生的点击事件  </p>
+</li>
+</ul>
+<p>所以，我们需要一个背景patch，一个文本patch，一个控制大小的patch，一个控制颜色的patch，以及一个控制动作的patch。 </p>
+<p>上面提到过，黑色的Layer Group 模块是接收其他模块输入并进行处理输出的处理器，所以，这些动作，需要在Layer Group里面进行。 </p>
+<p>双击”Layer Group”，进入处理器的内部。 </p>
+<ul>
+<li>你首先看到一块蓝色的patch，里面的 Fill layer 是填充背景的patch  </li>
+<li>然后点击，右上角Viewer, 你可以看到你的交互输出是一个黑色背景 </li>
+</ul>
+<p><img src="https://dl.dropbox.com/s/4yhxbp50iitisa6/1.png?dl=0" alt=""> </p>
+<p>如果你不喜欢这个输出样式，你可按”H”让背景的手，换一个。”- / =”还可以换背景。 </p>
+<p><img src="https://dl.dropbox.com/s/ni8c6zdc0m2qwq1/hand.png?dl=0" alt=""> </p>
+<p>好了，你现在需要的是打开你的Patch Library (快捷键”command + enter”)，找到你需要的其他的patch，拖拽到你的工作台，来完成整个交互动作。 </p>
+<p>通过关键词快速找到： </p>
+<ul>
+<li>Text Layer : 文本patch  </li>
+<li>Color Transition： 控制颜色的patch  </li>
+<li>Fill layer ：填充背景的patch  </li>
+<li>Switch: 动作的开关  </li>
+</ul>
+<p><img src="https://dl.dropbox.com/s/a3wp44l40pbctlv/patch.png?dl=0" alt=""> </p>
+<p>最终，你应该拖拽出这些patches </p>
+<p><img src="https://dl.dropbox.com/s/ihrqz7amdrtilti/2.png?dl=0" alt=""> </p>
+<p>让这些积木堆起来，并且控制他们，你需要一个交互指令的patch，在工作台界面，按下”I”，可以看到多出一个紫色的模块。 </p>
+<p><img src="https://dl.dropbox.com/s/pv4x7ev9lo189ej/3.png?dl=0" alt=""> </p>
+<p>这是一个交互指令patch </p>
+<ul>
+<li>down是鼠标按下状态 </li>
+<li>up是鼠标单击状态 </li>
+<li>tap是触碰 </li>
+<li>drag是拖拽 </li>
+</ul>
+<p>至此，基本的patches，你都具有了，接下来，只需要把它们依据，左侧输入，右侧输出的逻辑，连接起来就好。 </p>
+<p><img src="https://dl.dropbox.com/s/8g9rgao8nsshg85/4.png?dl=0" alt=""> </p>
+<p>这时，你应该看到的是这样的 </p>
+<p><img src="https://dl.dropbox.com/s/h6flcfcd2okad0h/error.gif?dl=0" alt=""> </p>
+<p>但是这样的交互变换看起来很突兀，而出现这个原因是因为Transition模块控制字体变换大小的scale是直接从0-1的，就相当于从0%-100%。 </p>
+<p>所以我们要在patch库里找到一个叫做Pop Animation的动作过渡patch，类似keynote里的神奇移动。  </p>
+<p><img src="https://dl.dropbox.com/s/u8k65apxrxbjsya/5.png?dl=0" alt=""> </p>
+<p>按照之前的连接方式，将其添加在开关后面，你就可以看到我们的第一个交互作品 </p>
+<h3 id="成果"><a href="#成果" class="headerlink" title="成果"></a>成果</h3><p>No1_Demo_Hello origami。 </p>
+<p><img src="https://dl.dropbox.com/s/z6ecnju0ugxabjt/Hello%20origami.gif?dl=0" alt=""> </p>
+
+            </article>
+            
+                <div class="share">
+                    <!--开启分享-->
+<div class="share-component"></div>
+
+<script src="/js/share.min.js"></script>
+                </div>    
+            
+            
+                <div class="comments">
+                    
+                        
+<div class="comments">
+    <div id="disqus_thread"></div>
+    <script>
+    /**
+    * RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+    * LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+    */
+    /*
+    var disqus_config = function () {
+    this.page.url = PAGE_URL; // Replace PAGE_URL with your page's canonical URL variable
+    this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+
+    s.src = '//ananleexz.disqus.com/embed.js';
+
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+</div>
+                    
+
+                </div>
+            
+        </div>
+        <div class="column one-fourth">
+            
+                <h3>Post Directory</h3>
+
+<div id="post-directory-module">
+	<section class="post-directory">
+		<p><strong class="toc-title">文章目录</strong></p>
+		<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#准备工作"><span class="toc-text">准备工作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#创建你的文件"><span class="toc-text">创建你的文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#熟悉你的工作环境"><span class="toc-text">熟悉你的工作环境</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#工作台里的世界"><span class="toc-text">工作台里的世界</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#开始制作"><span class="toc-text">开始制作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#成果"><span class="toc-text">成果</span></a></li></ol>
+	</section>
+</div>
+            
+        </div>
+       
+    </div>
+</section>
+
+<footer class="container">
+    <div class="site-footer" role="contentinfo">
+        <div class="copyright left mobile-block">
+                © 2016
+                <span title="ananleexz">ananleexz</span>
+                <a href="javascript:window.scrollTo(0,0)" class="right mobile-visible">TOP</a>
+        </div>
+
+        <ul class="site-footer-links right mobile-hidden">
+            <li>
+                <a href="javascript:window.scrollTo(0,0)" >TOP</a>
+            </li>
+        </ul>
+
+        <a href="https://github.com/Ananleexz/ananleexz.github.io" target="_blank" aria-label="view source code">
+            <span class="mega-octicon octicon-mark-github" title="GitHub"></span>
+        </a>
+
+        <ul class="site-footer-links mobile-hidden">
+            
+             
+              
+              <li>
+                <a href="/"  title="Home">Home</a>
+              </li>
+            
+              
+              <li>
+                <a href="/resume/"  title="Resume">Resume</a>
+              </li>
+            
+              
+              <li>
+                <a href="/blog/"  title="Blog">Blog</a>
+              </li>
+            
+              
+              <li>
+                <a href="/guestbook/"  title="Guestbook">Guestbook</a>
+              </li>
+            
+
+        </ul>
+
+    </div>
+</footer>
+
+		
+		<script src="/js/typer.js"></script>
+
+		<script src="/js/geopattern.js"></script>
+
+		<script src="/js/index.js"></script>
+
+		 <script src="/js/popular_repo.js"></script> 
+
+	</body>
+</html>
