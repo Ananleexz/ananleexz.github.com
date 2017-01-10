@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans" prefix="og: http://ogp.me/ns#" class="han-init">
+<head>
+  <meta charset="utf-8">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <title>Anan</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <!--在这里倒入jquery 方便处理部分页面的jquery-->
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+  <script src="http://lib.sinaapp.com/js/jquery/1.9.0/jquery.min.js" type="text/javascript"></script>
+</head>
+
+<body>
+	
+  <header class="site-header navfixed-false">
+
+  <div class="container">
+      <h1><a href="/" title="Anan"><span class="mega-octicon octicon-versions"></span> Anan</a></h1>
+      <nav class="site-header-nav" role="navigation">
+        
+              
+              <a href="/"  class=" site-header-nav-item hvr-underline-from-center" title="Home">Home</a>
+        
+              
+              <a href="/resume/"  class=" site-header-nav-item hvr-underline-from-center" title="Resume">Resume</a>
+        
+              
+              <a href="/blog/"  class=" site-header-nav-item hvr-underline-from-center" title="Blog">Blog</a>
+        
+              
+              <a href="/guestbook/"  class=" site-header-nav-item hvr-underline-from-center" title="Guestbook">Guestbook</a>
+        
+      </nav>
+  </div>
+</header>
+
+	
+    <section class="collection-head geopattern" data-pattern-id="熟悉GVRSDK小记" >
+
+    <div class="container">
+        <div class="collection-title">
+            <h1 class="collection-header">熟悉GVRSDK小记</h1>
+            <div class="collection-info">
+             
+                <span class="meta-info">
+                    
+                            <span class="octicon octicon-calendar"></span>
+                            <time datetime="2017-01-10T14:56:39.000Z" itemprop="datePublished">2017-01-10</time>
+                    
+                </span>
+             
+            </div>
+        </div>
+    </div>
+</section>
+	
+
+    <section class="container">
+
+    <div class="columns">
+        <div class="column three-fourths" >
+            <article class="article-content article-entry">
+                <p>为了熟悉谷歌VR SDK，自己进行了一次gvr for ios应用案例实践。</p>
+<a id="more"></a>
+<h2 id="基础设施"><a href="#基础设施" class="headerlink" title="基础设施"></a>基础设施</h2><p>首先说明下我实践的设备及应用版本（默认熟悉终端操作、git命令）：</p>
+<h3 id="设备"><a href="#设备" class="headerlink" title="设备"></a>设备</h3><ul>
+<li>mbp 10.12</li>
+<li>i7 10.2</li>
+</ul>
+<h3 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h3><ul>
+<li>GVR iOS SDK v1.10.0</li>
+<li>Xcode v8.2.1</li>
+</ul>
+<h2 id="gvr-ios-sdk说明"><a href="#gvr-ios-sdk说明" class="headerlink" title="gvr-ios-sdk说明"></a>gvr-ios-sdk说明</h2><p>这是一款面向iOS的VR Demo，Demo叫做“Treasure Hunt”是一款基本游戏。</p>
+<p>官方文档表明了它具GVR SDK的核心功能。在游戏中，用户围绕一个虚拟世界寻找和收集对象。</p>
+<p>它展示了一些基本的功能，如照明，空间运动和着色。它显示了如何设置触发输入，检测用户是否正在查看某事，设置空间音频，以及通过为每只眼睛提供不同的视图来渲染图像。</p>
+<p>如果你也觉得有意思，可以按照下面的步骤，也自己实践下玩玩。</p>
+<h3 id="下载gvr-ios-sdk"><a href="#下载gvr-ios-sdk" class="headerlink" title="下载gvr-ios-sdk"></a>下载gvr-ios-sdk</h3><pre><code>$ git clone https://github.com/googlevr/gvr-ios-sdk.git
+</code></pre><h2 id="准备Cocoapods"><a href="#准备Cocoapods" class="headerlink" title="准备Cocoapods"></a>准备Cocoapods</h2><p>当你用Xcode运行第三方开源类库时，你会遇到某类库调用其他类库的情况，这时候你就必须去下载其他类库，很麻烦。而Cocoapods只需要一行命令，就可以帮你解决掉这个问题，即便我不是iOS开发，我觉得这个轮子太棒了。</p>
+<h3 id="Cocoapods下载"><a href="#Cocoapods下载" class="headerlink" title="Cocoapods下载"></a>Cocoapods下载</h3><pre><code>$ sudo gem install cocoapods
+</code></pre><p>当你遇到输入命令后，终端没有响应，那么，应该就是我朝龙墙阻挡了cocoapods.org。</p>
+<p>RubyGems 镜像的管理工作已经交由 Ruby China 负责，所以我们不能用淘宝镜像跨这个墙了。</p>
+<pre><code>$ gem update --system # 这里请翻墙一下 
+$ gem -v
+  2.6.8
+</code></pre><p>  验证你的ruby镜像并且仅是gems.ruby-china.org</p>
+<pre><code>$ gem sources --add https://gems.ruby-china.org/ --remove https://rubygems.org/
+$ gem sources -l
+  https://gems.ruby-china.org
+# 确保只有 gems.ruby-china.org
+</code></pre><p> 事后，再使用下述命令进行下载  </p>
+<pre><code>$ sudo gem install cocoapods 
+</code></pre><h3 id="Cocoapods使用"><a href="#Cocoapods使用" class="headerlink" title="Cocoapods使用"></a>Cocoapods使用</h3><p>通过终端进入TreasureHunt这个文件夹，输入下述命令</p>
+<pre><code>$ pod update
+</code></pre><p>幸运的你会一直处于</p>
+<pre><code>Setting up CocoaPods master repo
+</code></pre><p>莫慌，这个类库更新要持续很久，总计939M的内容，如果比较急躁，就通过命令去看下载入进度。</p>
+<pre><code>cd ~/.cocoapods/
+du -sh * 
+</code></pre><p><img src="http://oh2uj2bnw.bkt.clouddn.com/cocoapods_finished.png" alt=""></p>
+<h3 id="CardboardSDK-CocoaPod已被添加"><a href="#CardboardSDK-CocoaPod已被添加" class="headerlink" title="CardboardSDK CocoaPod已被添加"></a>CardboardSDK CocoaPod已被添加</h3><p>这时候你会发现TreasureHunt文件夹多出一些内容，这就是update后的内容。</p>
+<h2 id="使用Xcode"><a href="#使用Xcode" class="headerlink" title="使用Xcode"></a>使用Xcode</h2><p> 通过Xcode打开TreasureHunt.xcworkspace这个项目，运行界面如下</p>
+<p><img src="http://oh2uj2bnw.bkt.clouddn.com/screen.png" alt=""></p>
+<h3 id="Run"><a href="#Run" class="headerlink" title="Run"></a>Run</h3><p>运行这个项目，见证轮子的力量吧！</p>
+
+            </article>
+            
+                <div class="share">
+                    <!--开启分享-->
+<div class="share-component"></div>
+
+<script src="/js/share.min.js"></script>
+                </div>    
+            
+            
+                <div class="comments">
+                    
+                        
+<div class="comments">
+    <div id="disqus_thread"></div>
+    <script>
+    /**
+    * RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+    * LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+    */
+    /*
+    var disqus_config = function () {
+    this.page.url = PAGE_URL; // Replace PAGE_URL with your page's canonical URL variable
+    this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+
+    s.src = '//ananleexz.disqus.com/embed.js';
+
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+</div>
+                    
+
+                </div>
+            
+        </div>
+        <div class="column one-fourth">
+            
+                <h3>Post Directory</h3>
+
+<div id="post-directory-module">
+	<section class="post-directory">
+		<p><strong class="toc-title">文章目录</strong></p>
+		<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#基础设施"><span class="toc-text">基础设施</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#设备"><span class="toc-text">设备</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#应用"><span class="toc-text">应用</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#gvr-ios-sdk说明"><span class="toc-text">gvr-ios-sdk说明</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#下载gvr-ios-sdk"><span class="toc-text">下载gvr-ios-sdk</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#准备Cocoapods"><span class="toc-text">准备Cocoapods</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Cocoapods下载"><span class="toc-text">Cocoapods下载</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Cocoapods使用"><span class="toc-text">Cocoapods使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CardboardSDK-CocoaPod已被添加"><span class="toc-text">CardboardSDK CocoaPod已被添加</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用Xcode"><span class="toc-text">使用Xcode</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Run"><span class="toc-text">Run</span></a></li></ol></li></ol>
+	</section>
+</div>
+            
+        </div>
+       
+    </div>
+</section>
+
+<footer class="container">
+    <div class="site-footer" role="contentinfo">
+        <div class="copyright left mobile-block">
+                © 2016
+                <span title="ananleexz">ananleexz</span>
+                <a href="javascript:window.scrollTo(0,0)" class="right mobile-visible">TOP</a>
+        </div>
+
+        <ul class="site-footer-links right mobile-hidden">
+            <li>
+                <a href="javascript:window.scrollTo(0,0)" >TOP</a>
+            </li>
+        </ul>
+
+        <a href="https://github.com/Ananleexz/ananleexz.github.io" target="_blank" aria-label="view source code">
+            <span class="mega-octicon octicon-mark-github" title="GitHub"></span>
+        </a>
+
+        <ul class="site-footer-links mobile-hidden">
+            
+             
+              
+              <li>
+                <a href="/"  title="Home">Home</a>
+              </li>
+            
+              
+              <li>
+                <a href="/resume/"  title="Resume">Resume</a>
+              </li>
+            
+              
+              <li>
+                <a href="/blog/"  title="Blog">Blog</a>
+              </li>
+            
+              
+              <li>
+                <a href="/guestbook/"  title="Guestbook">Guestbook</a>
+              </li>
+            
+
+        </ul>
+
+    </div>
+</footer>
+
+		
+		<script src="/js/typer.js"></script>
+
+		<script src="/js/geopattern.js"></script>
+
+		<script src="/js/index.js"></script>
+
+		 <script src="/js/popular_repo.js"></script> 
+
+	</body>
+</html>
